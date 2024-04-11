@@ -1,42 +1,44 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  // This widget is the root of your application.
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
-      theme: ThemeData(
-        // useMaterial3: false,
-        primarySwatch: Colors.blue,
-      ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
+      title: "Lizbeth Garcia",
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Mostrar libros 0483',
+              style: TextStyle(color: Colors.white)),
+          centerTitle: true,
+          backgroundColor: Color(0xff8e0633),
         ),
+        body: Center(
+            child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            SizedBox(
+              height: 250.0,
+              width: 200.0,
+              child: Image.asset(
+                'assets/damian.jpg',
+                fit: BoxFit.cover,
+              ),
+            ),
+            SizedBox(
+              height: 250.0,
+              width: 200.0,
+              child: Image.network(
+                'https://catalogue.immateriel.fr/resources/92/ab/543f2f867236f68d94cab9e3b23a775cc50f766668a2a19b755714c1b7ce.png',
+                fit: BoxFit.cover,
+              ),
+            )
+          ],
+        )),
       ),
     );
   }
